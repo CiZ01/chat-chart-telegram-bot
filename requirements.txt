@@ -1,0 +1,4 @@
+chat-miner=0.3.0
+matplotlib=3.6.3
+pyTelegramBotAPI=4.10.0
+python-dotenv=1.0.0
