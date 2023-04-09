@@ -1,0 +1,8 @@
+{
+    "messages" : {
+        "start_message": "Benvenut* in @chatchart_bot! Questo bot ti permette di creare grafici di vario tipo sulle statistiche delle tue chat. Il funzionamento è molto semplice, ti basta inviarmi la chat in allegato, rispondere alle possibili opzioni e riceverai un'immagine con tutti i grafici che hai scelto. Non ti preoccupare, non viene salvato nessuno dato in modo permanente, i dati vengono cancellati subito, e tutto il procedimento sarà guidato per rendere tutto più semplice."
+    },
+    "buttons": {
+        "start_button": "Inizia"
+    }
+}

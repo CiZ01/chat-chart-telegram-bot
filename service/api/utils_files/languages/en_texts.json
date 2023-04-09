@@ -1,0 +1,8 @@
+{
+    "messages" : {
+        "start_message": "Welcome* to @chatchart_bot! This bot allows you to create charts of various types on your chat statistics. The operation is very simple, you just send me the chat as an attachment, answer the possible options and you will receive an image with all the charts you have chosen. Don't worry, no data is saved permanently, the data is deleted right away, and the whole process will be guided to make it easy."
+    },
+    "buttons": {
+        "start_button": "Start"
+    }
+}
