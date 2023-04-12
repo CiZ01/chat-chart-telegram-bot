@@ -4,6 +4,7 @@ class ContextApi():
 
     userid = None
     user_lang = None
+    social = None
 
     def __init__(self):
         return

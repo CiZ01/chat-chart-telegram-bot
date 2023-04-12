@@ -9,6 +9,10 @@ DEFUALT_STOPWORDS_JSON_PATH = 'service/api/utils_files/default_stopwords.json'
 CMAP = {'Accent', 'Blues', 'BrBG', 'BuGn', 'BuPu', 'CMRmap', 'Dark2', 'GnBu', 'Greens', 'Greys', 'OrRd', 'Oranges', 'PRGn', 'Paired', 'Pastel1', 'Pastel2', 'PiYG', 'PuBu',
         'PuBuGn', 'PuOr', 'PuRd', 'Purples', 'RdBu', 'RdGy', 'RdPu', 'RdYlBu', 'RdYlGn', 'Reds', 'Set1', 'Set2', 'Set3', 'Spectral', 'Wistia', 'YlGn', 'YlGnBu', 'YlOrBr', 'YlOrRd'}
 
+HELP_LINK = {'whatsapp': 'https://faq.whatsapp.com/1180414079177245/', 'instagram': 'https://help.instagram.com/181231772500920',
+             'facebook': 'https://www.facebook.com/help/messenger-app/713635396288741', 'telegram': 'https://telegram.org/blog/export-and-more', 'signal': 'https://github.com/carderne/signal-export'}
+
+
 class ChatMiner:
 
     userid = None
@@ -17,7 +21,7 @@ class ChatMiner:
     parser = None
     lang = None
 
-    def __init__(self, parserName: str, filePath: str, userid: str, lang : str):
+    def __init__(self, parserName: str, filePath: str, userid: str, lang: str):
         '''
         Initialize the chat miner
         :param parserName: Name of the parser to use
@@ -56,7 +60,7 @@ class ChatMiner:
         # Add to plots list
         self.plots.append(fig)
         return
-    
+
     def get_wordcloud(self):
         '''
         Get the wordcloud for the given dataframe
@@ -68,7 +72,8 @@ class ChatMiner:
         stopwords = self.__get_stopwords()
 
         fig, ax = plt.subplots(1, 1, figsize=(9, 9))
-        kwargs={"background_color": "white", "width": 800, "height": 300, "max_words": 500}
+        kwargs = {"background_color": "white",
+                  "width": 800, "height": 300, "max_words": 500}
         ax = vis.wordcloud(self.df, stopwords=stopwords, ax=ax, **kwargs)
         self.plots.append(fig)
         plt.show()
@@ -104,8 +109,11 @@ class ChatMiner:
         stopwords = {}
         with open(DEFUALT_STOPWORDS_JSON_PATH, 'r') as json_file:
             data = json.load(json_file)[self.lang]
-            stopwords = set(item for sublist in data.values() for item in sublist)
+            stopwords = set(item for sublist in data.values()
+                            for item in sublist)
         return stopwords
+
+
 if __name__ == "__main__":
     cm = ChatMiner("WhatsAppParser", "./_chat.txt", "1234", "it")
     cm.get_wordcloud()
